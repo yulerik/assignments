@@ -1,0 +1,141 @@
+body {
+    background-color: rgba(57, 107, 30, .2);
+    margin: 0 auto;
+    max-width: 75em;
+    width: 95%;
+    line-height: 1.75;
+    padding: 4em 1em;
+    color: #566b78;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+h1, h2, strong {
+    color:#333;
+}
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9em;
+}
+a {
+    color: olivedrab;
+    font-family: 'Permanent Marker', cursive;
+}
+header {
+    background-image: url('/coasters/background-coaster.jpg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size:auto  
+    line-height: 1.2;    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+header > h1 {
+    /* border: 1px solid green; */
+    background-color: rgba(188, 149, 92);
+    padding: 15px;
+    border-radius: 15px;
+}
+nav {
+    display: flex;
+    border: 1px solid black;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    justify-content: space-around;
+    background-color: black;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+main > * {
+    /* border: 1px solid black; */
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* border: 1px solid red; */
+}
+#about > * {
+    /* border: 1px solid red; */
+}
+#reviews {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 15px;
+    /* border: 5px solid green; */
+}
+#reviews > * {
+    /* border: 2px dotted blue; */
+}
+#reviews > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+    width: 100%;
+}
+#reviews > div > p {
+    flex-grow: 1;
+}
+#reviews > div > h3 {
+    /* padding: 15px; */
+}
+#reviews > div > * {
+    /* border: 5px dashed green; */
+}
+
+#gallery {
+    display: flex; 
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    /* border: 1px solid green; */
+}
+#gallery > * {
+    /* border: 1px solid green; */
+}
+#gallery > img {
+    border-radius: 15px;
+    width: 23%;
+    padding: 5px;
+}
+footer {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+/* customize page */
+#customize > form {
+    display: flex;
+    flex-direction: column;
+}
+#customize > form > input {
+    background-color: rgba(180, 255, 211, 0.27);
+}
+
+/* contact us */
+#contact > div > h3 {
+    color: #333;
+}
+
