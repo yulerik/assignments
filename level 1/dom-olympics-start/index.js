@@ -62,3 +62,47 @@ function chatCleared() {
 }
 
 clearChat.addEventListener('click', chatCleared);
+
+// dropdown menu style change
+document.getElementById('theme-drop-down').addEventListener('change', function() {
+    console.log('You selected: ', this.value);
+});
+
+
+
+var theme = document.getElementById('theme-drop-down');
+
+theme.addEventListener('change', themeChange);
+
+var leftChat = document.getElementsByClassName('left');
+
+function themeChange() {
+    if (theme.value === 'theme-one') {
+        for (var i = 0; i < left.length; i++) {
+            left[i].style.backgroundColor = 'burlywood';
+            left[i].style.color = 'black';
+            left[i].style.border = 'none';
+        }
+        for (var i = 0; i < left.length; i++) {
+            right[i].style.backgroundColor = 'lightblue';
+        }
+    } else if (theme.value === 'theme-two') {
+        for (var i = 0; i < left.length; i++) {
+            left[i].style.backgroundColor = 'black';
+            left[i].style.color = 'lightgrey';
+            left[i].style.border = 'none';
+        }
+        for (var i = 0; i < left.length; i++) {
+            right[i].style.backgroundColor = 'red';
+        }
+    } else if (theme.value === 'theme-three') {
+        for (var i = 0; i < left.length; i++) {
+            left[i].style.backgroundColor = 'white';
+            left[i].style.color = 'black';
+            left[i].style.border = '1px solid black';
+        }
+        for (var i = 0; i < left.length; i++) {
+            right[i].style.backgroundColor = 'grey';
+        }
+    }
+}
