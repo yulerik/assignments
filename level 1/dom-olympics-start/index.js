@@ -106,3 +106,37 @@ function themeChange() {
         }
     }
 }
+
+// add new messages to chat
+// only adds when submit is clicked, not when enter key is pressed in input box.
+
+var chatBox = document.querySelector('.messages');
+
+function addMessage() {
+    var newChat = document.getElementById('input').value;
+    var newMessage = document.createElement('div');
+    newMessage.textContent = newChat;
+    var chatBody = document.querySelector('#main > .messages');
+    // check if last message is on left or right, then place new message on opposite side
+    if (chatBody.children.length === 0) {
+        newMessage.setAttribute('class', 'message left');
+        chatBody.appendChild(newMessage);
+    } else if (chatBody.lastElementChild.className === 'message right') {
+        newMessage.setAttribute('class', 'message left');
+        chatBody.appendChild(newMessage);
+    } else if (chatBody.lastElementChild.className === 'message left') {
+        newMessage.setAttribute('class', 'message right');
+        chatBody.appendChild(newMessage);
+    }
+}
+
+function enter(event) {
+    // if enter is pressed, prevent refreshing, call addMessage function to submit form.
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        addMessage()
+    }
+}
+
+document.getElementById('new-message').addEventListener('click', addMessage);
+document.getElementById('input').addEventListener('keydown', enter);
