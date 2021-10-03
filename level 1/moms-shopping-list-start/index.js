@@ -36,8 +36,14 @@ function deleteThis(event) {
     var listItem = event.target.parentElement
     document.getElementById('list').removeChild(listItem);
 }
-function editItem() {
-    alert('will edit item')
+function editItem(event) {
+    var change = prompt('what would you like to change the item to?', '')
+    var current = event.target.parentElement.children;
+    if (change === null || change === '')  {
+        alert('no change')
+    } else {
+        current[0].textContent = change;
+    } 
 
 }
 // while inside of list div, delete item and edit item query updates
