@@ -15,8 +15,10 @@ function newListItem(event) {
         // new edit and delete button, append to list element
         var newButton = document.createElement('button');
         newButton.textContent = 'edit';
+        newButton.setAttribute('class', 'edit');
         var newDelete = document.createElement('button');
         newDelete.textContent = 'X';
+        newDelete.setAttribute('class', 'delete');
         newItem.appendChild(newButton);
         newItem.appendChild(newDelete);
         // append list item and children to list
@@ -27,3 +29,28 @@ function newListItem(event) {
 }
 // when input form is submitted
 document.addItem.addEventListener('submit', newListItem);
+
+// when X button is pressed, delete that item from list
+function deleteThis(event) {
+    alert('will delete this item');
+    var listItem = event.target.parentElement
+    document.getElementById('list').removeChild(listItem);
+}
+function editItem() {
+    alert('will edit item')
+
+}
+// while inside of list div, delete item and edit item query updates
+// adds event listeners to each element.
+function hoverOverList() {
+    var deleteItems = document.querySelectorAll('.delete');
+    deleteItems.forEach(item => {
+        item.addEventListener('click', deleteThis)
+    })
+    var editItems = document.querySelectorAll('.edit')
+    for(var i = 0; i < editItems.length; i++) {
+        editItems[i].addEventListener('click', editItem)
+    }
+}
+document.getElementById('list').addEventListener('mouseover', hoverOverList)
+
