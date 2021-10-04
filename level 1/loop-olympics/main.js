@@ -38,4 +38,74 @@
         }
     }
     console.log(newFruits)
-    // Silver Medal
+// Silver Medal
+    const peopleArray = [
+        {
+          name: "Harrison Ford",
+          occupation: "Actor"
+        },
+        {
+          name: "Justin Bieber",
+          occupation: "Singer"
+        },
+        {
+          name: "Vladimir Putin",
+          occupation: "Politician"
+        },
+        {
+          name: "Oprah",
+          occupation: "Entertainer"
+        }
+    ]      
+    var names = [];
+    var occupations = [];
+    for (var d = 0; d < peopleArray.length; d++) {
+        var current = peopleArray[d];
+        names.push(current.name);
+        occupations.push(current.occupation);
+    }
+    console.log(names);
+    console.log(occupations);
+// Gold Medal
+    // 3x3 grid of zeros
+    var grid = [];
+    for (var e = 0; e <= 2; e++) {
+        var innerGrid = [];
+        for (var f = 0; f <= 2; f++) {
+            innerGrid.push(0);
+        }
+        console.log(innerGrid);
+        grid.push(innerGrid);
+    }
+    var gridTwo = [];
+    for (var g = 0; g <= 2; g++) {
+        var innerTwo = []
+        for (var h = 0; h <= 2; h++) {
+            innerTwo.push(g);
+        }
+        console.log(innerTwo);
+        gridTwo.push(innerTwo);
+    }
+    var gridThree = [];
+    for (var l = 0; l <=2; l++) {
+        var innerThree = [];
+        for (var m = 0; m <= 2; m++) {
+            innerThree.push(m);
+        }
+        console.log(innerThree);
+        gridThree.push(innerThree);
+    }
+    // change the last three grids to all 'x' as elements
+    function changeTo(arrayOfArrays) {
+        for (var i = 0; i < arrayOfArrays.length; i++) {
+            var inner = arrayOfArrays[i];
+            for (var j = 0; j < inner.length; j++) {
+                arrayOfArrays[i][j] = 'x';
+            }
+            console.log(inner);
+        }
+        return arrayOfArrays;
+    }
+    changeTo(grid);
+    changeTo(gridTwo);
+    changeTo(gridThree);
