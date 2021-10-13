@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travel Form</title>
+        <link href='styles.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <main>
+            <h1>Wander Travels</h1>
+            <p>Please enter the following information</p>
+            <form name='travelInfo'>
+            <div id='firstName'> 
+                <label for='firstName'>First Name:</label>
+                <input name='firstName' id='firstName' type='text'/>
+            </div>
+            <div id='lastName'>
+                <label for='lastName'>Last Name:</label>
+                <input name='lastName' id='lastName' type='text'/>
+            </div>
+            <div id='age'>
+                <label for='age'>Age:</label>
+                <input name='age' id='age' type='number'/>
+            </div>
+            <div id='gender'>Gender:
+                <label for='male'>Male</label>
+                <input name='gender' id='male' type='radio'/>
+                <label for='female'>Female</label>
+                <input name='gender' id='female' type='radio'/>
+            </div>    
+            <div id='location'>Location:
+                <label for='new york'>New York</label>
+                <input name='location' id='new york' type='checkbox'/>
+                <label for='denver'>Denver</label>
+                <input name='location' id='denver' type='checkbox'/>
+                <label for='new york'>Seattle</label>
+                <input name='location' id='new york' type='checkbox'/>
+                <label for='denver'>Denver</label>
+                <input name='location' id='denver' type='checkbox'/>
+                <label for='new york'>New York</label>
+                <input name='location' id='new york' type='checkbox'/>
+                <label for='denver'>Denver</label>
+                <input name='location' id='denver' type='checkbox'/>
+            </div>
+            <div>Dietary Restrictions:
+                <label for='vegetarian'>Vegetarian</label>
+                <input name='diet' id='vegetarian' type='checkbox'/>
+                <label for='vegan'>Vegan</label>
+                <input name='diet' id='vegan' type='checkbox'/>
+                <label for='kosher'>Kosher</label>
+                <input name='diet' id='kosher' type='checkbox'/>
+                <label for='gluten free'>Gluten Free</label>
+                <input name='diet' id='gluten free' type='checkbox'/>
+            </div>
+            <button>Submit Information</button>
+            </form>
+        </main>
+    <script src='main.js'></script>
+    </body>
+</html>
