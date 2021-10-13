@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+main > * {
+    padding: 5px;
+    margin: 5px;
+}
+body {
+    background-color: peachpuff;
+    color: #333;
+}
