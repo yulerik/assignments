@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mario Pest Control</title>
+    <link href='styles.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header>
+        <h1>Mario Pest Control</h1>
+    </header>
+    <main>
+        <div id='goomba'>
+            <h3>Goomba</h3>
+            <p>Price: 5 Coins</p>
+            <img src='enemies/goomba.png' target='goomba'>
+            <form name='goomba'>
+                <label for='goomba'>How Many Defeated Goombas?</label>
+                <br>
+                <input name='total' id='goomba' type='number'/>
+                <br>
+                <button>Total Price For Defeated Goombas</button>
+            </form>
+            <div>
+                <p>Total Defeated Goombas: </p>
+                <span id='total'>0</span>
+                <p>Total Price: </p>
+                <span id='price'>0</span>
+                <br><br>
+                <button type='button' id='clear'>Clear Totals</button>
+            </div>
+        </div>
+        <div id='bob-omb'>
+            <h3>Bob-omb</h3>
+            <p>Price: 7 Coins</p>
+            <img src='enemies/bob-omb.png' target='bob-omb'>
+            <form name='bob-omb'>
+                <label for='bob-omb'>How Many Defeated Bob-ombs?</label>
+                <br>
+                <input name='total' id='bob-omb' type='number'/>
+                <br>
+                <button>Total Price For Defeated Bob-ombs</button>
+            </form>
+            <div>
+                <p>Total Defeated Bob-ombs: </p>
+                <span id='total'>0</span>
+                <p>Total Price: </p>
+                <span id='price'>0</span>
+                <br><br>
+                <button type='button' id='clear'>Clear Totals</button>
+            </div>
+        </div>
+        <div id='cheep-cheep'>
+            <h3>Cheep-Cheep</h3>
+            <p>Price: 11 Coins</p>
+            <img src='enemies/cheep-cheep.png' target='cheep-cheep'>
+            <form name='cheep-cheep'>
+                <label for='cheep-cheep'>How Many Defeated Cheep-Cheeps?</label>
+                <br>
+                <input name='total' id='cheep-cheep' type='number'/>
+                <br>
+                <button>Total Price For Defeated Cheep-Cheeps</button>
+            </form>
+            <div>
+                <p>Total Defeated Cheep-Cheeps: </p>
+                <span id='total'>0</span>
+                <p>Total Price: </p>
+                <span id='price'>0</span>
+                <br><br>
+                <button type='button' id='clear'>Clear Totals</button>
+            </div>
+        </div>
+        <div id=totals>
+            Total Price for all defeated enemies
+        </div>
+
+
+    </main>
+    <footer>
+        
+    </footer>
+    <script src='main.js'></script>
+</body>
+
+</html>
