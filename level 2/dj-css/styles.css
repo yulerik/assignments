@@ -1,0 +1,68 @@
+body {
+    padding: 5em;
+    text-align: center;
+}
+main {
+    display: grid;
+    grid-template-rows: minmax(100px, auto);
+    grid-template-columns: repeat(3, 1fr);
+}
+div {
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#one {
+    background-color: blue;
+    transition: background-color 250ms linear, border-radius 250ms linear;
+}
+#one:hover{
+    background-color: black;
+    border-radius: 50px;
+}
+#two {
+    background-color: red;
+    transition: opacity 1s ease-in-out 100ms;
+}
+#two:hover {
+    opacity: .2;
+}
+#three {
+    background-color: purple;
+    transition: box-shadow 200ms 
+}
+#three:hover {
+    box-shadow: 25px -25px 1px darkorchid;
+}
+#four {
+    background-color: green;
+    transition: height 250ms linear, width 250ms linear, background-color 100ms ease-in-out 250ms, border 250ms linear;
+}
+#four:hover {
+    border-radius: 0;
+    background-color: darkolivegreen;
+    height: 75px;
+    width: 75px;
+
+}
+#five {
+    background-color: gold;
+    transition: width 1s steps(50, end), background-color 1s steps(50, end);
+}
+#five:hover {
+    background-color: burlywood;
+    width: 75px;
+
+}
+#six {
+    background-color: black;
+    transition: background-color 2s steps(14, end),height 1000ms steps(6, end) 1s, width 1s steps(8, end);
+}
+#six:hover {
+    height: 200px;
+    width: 150px;
+    background-color: white;
+
+}
