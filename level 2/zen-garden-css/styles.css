@@ -1,0 +1,333 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+body {
+    margin: 0px;
+    color: #325050;
+    background: #fff;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 70%;
+}
+p {
+    line-height: 2;
+    font-size: 1.2em;   
+}
+h1, h2 {
+    color: #fff;
+
+}
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 5em;
+    font-weight: 100;
+    line-height: 1.2;
+}
+h2 {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-size: 1.6em;
+}
+.about, .participation, .requirements {
+    padding: 23px 50px;
+}
+h3 {
+    padding-top: 15px;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    font-weight: 200;
+}
+li {
+    list-style: none;
+    font-size: 1.2em;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-image: url('images/bamboo.png');
+}
+.header {
+    height: 310px;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-image: url(images/contours-opaque.png), url(images/gridlines-opaque.png), url(images/header-background.jpeg);
+    background-size: 50% auto, auto, auto, cover;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    border-top: solid 10px rgba(19, 67, 71, 0.9);
+}
+.header-title::before {
+    content: '';
+    width: 120px;
+    height: 120px;
+    background-image: url(images/enso.svg);
+    background-size: 120px 120px;
+    margin-right: 32px;
+}
+.header-title {
+    grid-column: 1/3;
+    /* border-top: 7px solid rgba(0, 39, 43, 0.2); */
+    margin-top: -3px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+.title {
+    
+}
+.designs {
+    grid-column: 3/4;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70px;
+    width: 70%;
+}
+.designs > p {
+    padding-right: 4em;
+}
+.left-link {
+    font-size: 44px;
+    font-family: 'verdemoderna';
+    line-height: 70px;
+    width: 70px;
+    display: none;
+}
+.right-link {
+    font-size: 44px;
+    width: 70px;
+    font-family: 'verdemoderna';
+    line-height: 70px;
+}
+.about {
+    grid-column: 1/3;
+    background-color: rgb(255, 255, 255);
+}
+.authors {
+    grid-column: 3/4;
+    background-color: rgb(237, 244, 240);
+    color: #c0cac3;
+    padding: 50px 25px;
+}
+.list-item {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.5em;
+    color: #607476;
+    padding: 20px;
+    border-bottom: 2px solid #d9e3dc;;
+    width: 60%;
+    display: grid;
+    grid-template-rows: repeat(2, 50px);
+    grid-template-columns: 32px auto;
+    justify-content: start;
+}
+.list-item > a {
+    color: #607476;
+    font-family: 'Julius Sans One', sans-serif;
+}
+.list-item-title {
+    grid-row: 1/2;
+    grid-column: 1/5;
+}
+.by {
+    grid-row: 2/2;
+    grid-column: 1/5;
+    color: #c0cac3;
+
+}
+.author-name {
+    color: #616857;
+    font-family: 'Libre Baskerville', sans-serif;
+    grid-column: 2/5;
+    grid-row: 2/2;
+}
+.participation {
+    grid-column: 1/3;
+    background-color: rgba(138,188,159,0.4);
+}
+.links {
+    grid-column: 3/4;
+    background-color: rgba(138,188,159,0.4);
+    border-top: solid 1px #a0b9ad;
+}
+.links-list {
+    color: #c0cac3;
+    padding-top: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.links-item {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.2em;
+    border-top: solid 1px #a0b9ad;
+    padding: 25px;
+    width: 75%;
+    color: #607476;
+
+
+}
+.requirements {
+    grid-column: 1/3;
+    background-color: rgb(255, 255, 255);
+
+}
+.blank {
+    grid-column: 3/4;
+    /* background-color: black; */
+}
+.footer {
+    grid-column: 1/4;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 2em;
+    background-color: rgba(19, 67, 71);
+    background-image: url(images/koi.jpeg);
+    text-align: center;
+    line-height: 2;
+    text-spacing: 2px;
+}
+.footer-links {
+    grid-column: 1/4;
+    font-family: 'verdemoderna';
+    padding: 3em 10%;
+    color: #fff;
+    background-color: rgba(19, 67, 71);
+    text-align: center;
+}
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    padding: 10px;
+}
+.icons > div {
+    width: 50px;
+    height: 50px;
+    /* background-color: #fff; */
+    border-radius: 50%;
+    font-family: 'verdemoderna';
+    font-size: 48px;
+}
+
+
+@media (max-width: 900px){
+    .container {
+        grid-template-rows: repeat(8, auto);
+    }
+    .header {
+        height: 275px;
+        text-align: center;
+        grid-template-rows: 205px 70px;
+    }
+    .header-title {
+        grid-column: 1/4;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .title {
+        text-align: center;
+    }
+    .designs {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.65);
+        grid-column: 1/4;
+        grid-row: 2/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+    .designs > p {
+        padding-right: 0;
+    }
+    .left-link {
+        font-size: 44px;
+        font-family: 'verdemoderna';
+        line-height: 70px;
+        width: 70px;
+        display: block;
+    }
+    .right-link {
+        font-size: 44px;
+        width: 70px;
+        font-family: 'verdemoderna';
+        line-height: 70px;
+    }
+    .about {
+        grid-column: 1/4;
+    }
+    .participation {
+        grid-column: 1/4;
+    }
+    .requirements {
+        grid-column: 1/4;
+    }
+    .blank {
+        display: none;
+    }
+    .authors {
+        grid-row: 7/8;
+        grid-column: 1/4;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .authors-links {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0px;
+    }
+    .list-item {
+        width: 100%;
+    }
+    .links-list {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0px;
+    }
+    .links-item {
+        width: 100%;
+    }
+    .links {
+        grid-row: 8/9;
+        grid-column: 1/4;
+    }
+}
+@media (max-width: 600px) {
+    /* .authors-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    } */
+    .authors-links > li a {
+        color: #607476;
+        text-decoration: none;
+        font-family: 'Julius Sans One', sans-serif;
+    }
+    .links-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+/* icon fonts */
+@font-face {
+	font-family: 'verdemoderna';
+	src:url('fonts/verdemoderna.woff');
+	src:url('fonts/verdemoderna.eot?#iefix') format('embedded-opentype'),
+		url('fonts/verdemoderna.woff') format('woff'),
+		url('fonts/verdemoderna.ttf') format('truetype'),
+		url('fonts/verdemoderna.svg#verdemoderna') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}                                                                                                               
+
+
