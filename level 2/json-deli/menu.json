@@ -1,0 +1,47 @@
+{
+	"appetizers": [{
+		"name": "Fried Pickles",
+		"ingredients": ["sliced pickles", "deep fried breading"],
+		"description": "Sliced pickles, dipped in breading and then deep fried."
+	}, {
+		"name": "Nachos",
+		"ingredients": ["tortilla chips", "shredded cheese mix", "salsa", "beans", "gaucamole"],
+		"description": "Tortilla chips stacked on a bed of beans and salsa, each layer of chips spread with cheese and gaucamole mix."
+	}],
+	"cold sandiwiches": [{
+        "name": "BLT",
+        "ingredients": ["bacon", "lettuce", "tomato", "turkey", "ham", "white bread", "salt", "pepper"],
+        "description": "Bacon, lettuce, tomato, turkey, and ham all stacked on white bread with salt and pepper added."
+    }, {
+        "name": "Tuna",
+        "ingredients": ["tuna", "wheat bread", "mayonaisse", "diced pickles", "salt", "pepper"],
+        "description": "Tuna, mayonaisse, pickles, salt, and pepper mixed together. Spread evenly over wheat bread."
+    }],
+	"hot sandwiches": [{
+        "name": "Ham and Cheese Melt",
+        "ingredients": ["ham", "cheddar cheese", "butter", "sourdough bread"],
+        "description": "Ham and cheese melted together on buttered sourdough bread."
+    }, {
+        "name": "Meatball Marinara",
+        "ingredients": ["meatballs", "marinara sauce", "baguette", "shredded cheese mix"],
+        "description": "Baguette with meatballs sauced with marinara and coveredc in shredded cheese."
+    }],
+	"desserts": [{
+        "name": "Chocolate Chip Cookies",
+        "ingredients": ["chocolate chips, cookie dough"],
+        "description": "Chocolate Chip cookies cooked tell the center is the perfect temperature and texture."
+    }, {
+        "name": "Carrot Cake",
+        "ingredients": ["carrot", "sugar", "eggs", "baking powder", "flour", "walnuts", "almonds"],
+        "description": "Carrot cake baked with walnuts and almonds added to the top."
+    }],
+	"drinks": [{
+        "name": "Coffee",
+        "ingredients": ["coffee beans", "hot water", "steamed almond milk", "vanilla syrup"],
+        "description": "Freshly grounded coffee mixed with almond milk with vanilla syrup for a frothy latte."
+    }, {
+        "name": "Water",
+        "ingredients": ["h20"],
+        "description": "Water poured at room temperature."
+    }]
+}
