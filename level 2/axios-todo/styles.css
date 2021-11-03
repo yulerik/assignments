@@ -8,6 +8,7 @@ header {
     width: 25%;
     position: fixed;
     text-align: center;
+    border-right: 1px solid black;
 }
 form[name='todo'] {
     display: flex;
@@ -24,6 +25,22 @@ div {
 .item {
     display: flex;
     flex-direction: column;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+.item > form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.item > form > label {
+    grid-column : 1/2;
+    text-align: center;
+}
+.item > form > input {
+    grid-column: 2/6;
+}
+.item > form > button {
+    grid-column: 3/4;
 }
 .listItems {
     display: grid;
