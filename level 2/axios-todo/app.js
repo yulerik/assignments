@@ -72,12 +72,12 @@ function showList(data) {
         checkbox.addEventListener('click', isCompleted);
 
         // edit button
-        const editButton = document.createElement('input');
+        const editButton = document.createElement('button');
         editButton.type = 'button';
         // set name to id from database for ease of access later
         // when needing to delete
         editButton.name = data[i]['_id'];
-        editButton.value = "Edit";
+        editButton.textContent = "Edit";
         edit.appendChild(editButton);
         // event listener to call function PUT call to edit input item
         editButton.addEventListener('click', editListItem);
@@ -150,7 +150,7 @@ function editListItem(event){
     currentDiv.children[0].style.display = 'none';
     // change edit button to save and add event listener for PUT call function
     // to update the form
-    currentDiv.children[1].children[1].value = 'Save';
+    currentDiv.children[1].children[1].textContent = 'Save';
     currentDiv.children[1].children[1].addEventListener('click', editPutCall)
 
     // create form to place ontop of edit div
