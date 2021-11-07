@@ -1,8 +1,11 @@
 import React from 'react'
+import FriendList from './FriendList'
+
+
 
 function App(props) {
     return (
-        <h1>Friends with Pets</h1>
+        <FriendList />
     )
 }
 
