@@ -1,4 +1,4 @@
-export default [
+const blogPosts = [
     {
         title: "Man must explore, and this is exploration at its greatest",
         subTitle: "Problems look mighty small from 150 miles up",
@@ -21,3 +21,5 @@ export default [
         date: "July 8, 2019"
     }
 ]
+
+export default blogPosts
