@@ -1,0 +1,8 @@
+#main-root {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 15px;
+}
