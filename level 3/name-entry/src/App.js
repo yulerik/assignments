@@ -42,7 +42,7 @@ class App extends React.Component {
                     />
                     <button>Add name to list</button>
                 </form>
-                <h1>{this.state.name}</h1>
+                <h1>{this.state.firstName} {this.state.lastName}</h1>
                 <ul>
                     Entered Names:
                     {listItem}

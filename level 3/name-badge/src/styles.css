@@ -1,0 +1,42 @@
+
+#mainWrapper {
+
+}
+#name-entry {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: repeat(7, auto);
+}
+#firstName {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+#lastName {
+    grid-column: 4/9;
+    grid-row: 1/2;
+}
+#email {
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
+#birthPlace {
+    grid-column: 4/9;
+    grid-row: 2/3;
+}
+#phone {
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+#favFood {
+    grid-column: 4/9;
+    grid-row: 3/4;
+}
+#textArea {
+    grid-column: 1/9;
+    grid-row: 4/6;
+}
+button {
+    grid-column: 3/5;
+    grid-row: 6/7;
+}
