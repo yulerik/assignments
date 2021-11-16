@@ -21,16 +21,14 @@ class App extends React.Component {
     handleChange(event) {
         const {name, value} = event.target 
         this.setState({ [name]: value })
-        // for (let each in this.state) {
-        //     if (!Array.isArray(this.state[each])){
-        //         console.dir(event.target)
-        //         if (this.state[each].length >= 2) {
-        //             // event.target.submitButton.disabled = false
-        //         } else {
-        //             // event.target.submitButton.disabled = true
-        //         }
-        //     }
-        // }
+        
+        const {firstName, lastName, email, birthPlace, phone, favFood, textArea} = this.state
+        // submit button disabled while length is less than 3 in all fields
+        if (firstName.length >= 2 && lastName.length >= 2 && email.length >= 2 && birthPlace.length >= 2 && phone.length >= 2 && favFood.length >= 2 && textArea.length >= 2) {
+            document.getElementById('submit-button').disabled = false
+        } else {
+            document.getElementById('submit-button').disabled = true
+        }
     }
     handleSubmit(event) {
         event.preventDefault()
@@ -44,7 +42,6 @@ class App extends React.Component {
             textArea: textArea.value,
             favFood: favFood.value
         }
-        console.log(newState)
         this.setState(prevState => prevState.listOfBadges.push(newState))
         // clear state directly since the forms display state. do not clear the array of badges.
         for (let each in this.state) {
@@ -65,8 +62,10 @@ class App extends React.Component {
                         placeholder='First Name'
                         name='firstName'
                         id='firstName'
+                        minLength='3'
                         value={this.state.firstName}
                         onChange={this.handleChange}
+                        required
 
                     />
                     <input 
@@ -76,6 +75,8 @@ class App extends React.Component {
                         id='lastName'
                         placeholder='Last Name'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
                     <input 
                         type='text'
@@ -84,6 +85,8 @@ class App extends React.Component {
                         id='email'
                         placeholder='Email'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
                     <input 
                         type='text'
@@ -92,14 +95,18 @@ class App extends React.Component {
                         id='birthPlace'
                         placeholder='Place of Birth'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
                     <input 
-                        type='text'
+                        type='number'
                         value={this.state.phone}
                         name='phone'
                         id='phone'
-                        placeholder='Phone'
+                        placeholder='Phone (numbers only)'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
                     <input 
                         type='text'
@@ -108,6 +115,8 @@ class App extends React.Component {
                         id='favFood'
                         placeholder='Favorite Food'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
                     <textarea 
                         type='text'
@@ -116,8 +125,10 @@ class App extends React.Component {
                         id='textArea'
                         placeholder='Tell us about yourself'
                         onChange={this.handleChange}
+                        minLength='3'
+                        required
                     />
-                    <button>Submit</button>
+                    <button id='submit-button' disabled={true}>Submit</button>
                 </form>
                 <ul>
                     {badges}
