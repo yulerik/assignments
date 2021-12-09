@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React from 'react'
+// import randomcolor from 'randomcolor'
+// import axios from 'axios'
 
 function BackgroundButton(props) {
-    function button(event) {
-        event.preventDefault()
-        alert('button works')
-        
-    }
+    // function button(event) {
+    //     event.preventDefault()
+    //     const randomHexColor = randomcolor()
+    //     alert(`button works. random color is ${randomHexColor}`)
+
+    // }
+
 
     return (
-        <button onClick={button}>Change Background Color</button>
-    )
+        <button onClick={props.onClick}>Change Background Color</button>
+    )   
 }
 
 export default BackgroundButton

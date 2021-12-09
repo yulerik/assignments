@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 import BackgroundButton from './BackgroundButton'
 import Hit from './Hit'
 import axios from 'axios'
+import randomcolor from 'randomcolor'
 import './styles.css'
 
 
@@ -10,7 +11,8 @@ function App() {
         loading: false,
         list: [],
         loadingColor: false,
-        titleColor: ''
+        titleColor: '',
+        randomColor: ''
     })
     
     useEffect(() => {
@@ -26,7 +28,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-        axios.get('https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}')
+        axios.get(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
             .then(response => {
                 setHitList(prevState => ({
                     ...prevState,
@@ -35,7 +37,17 @@ function App() {
                 }))
             })
             .catch(err => console.log(err))
-    })
+    }, [])
+
+    function button(event) {
+        event.preventDefault()
+        const randomHexColor = randomcolor()
+        setHitList(prevState => ({
+            ...prevState,
+            randomColor: randomHexColor
+        }))
+        
+    }
 
     // const loadingText = this.state.loading ? 'loading hit list' : 'list has loaded'
     const loadingText = hitList.loading ? 'loading hit list' : hitList.list.map(each => <Hit info={each} />)
@@ -44,7 +56,7 @@ function App() {
     return (
         <div id='hit-list' style={{backgroundColor: hitList.randomColor}}>
                 <h1 style={{backgroundColor: titleColor}} >Don Corleone's Hit List</h1>
-                <BackgroundButton />
+                <BackgroundButton onClick={button}/>
                 <ul>
                     {loadingText}
                 </ul>
