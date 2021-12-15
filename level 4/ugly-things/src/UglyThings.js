@@ -8,8 +8,7 @@ function UglyThings(props) {
     const newThings = uglyThings.map(each => <Thing key={each._id} props={each} onClickEdit={editButton} onClickDelete={deleteButton} />)
 
     return (
-        <div>
-
+        <div className='things-list'>
             <h1>List of ugly things</h1>
             {newThings}
         </div>

@@ -37,13 +37,14 @@ function ThemeContextProvider(props) {
     }
 
     function editButton(event) {
-        alert('working')
         console.dir(event.target.parentElement)
         const thingId = event.target.parentElement.id
-        // filter out current Object
-        const currentThing = uglyThings.filter(each => each._id === thingId)
-        // destructure current object in state
-        const {_id, title, description, imgUrl} = currentThing[0]
+    
+        console.dir(event.target.parentElement)
+        const title = event.target.parentElement.children[0].textContent
+        const _id = thingId
+        const description = event.target.parentElement.children[1].textContent
+        const imgUrl = event.target.parentElement.children[2].src
 
         const newForm = 
             <form name={_id} onSubmit={editChangeSubmit}>
@@ -78,7 +79,7 @@ function ThemeContextProvider(props) {
             newTitle = title
         } 
         if (newDescription === '') {
-            newDescription = description
+            newDescription = event.target[1].placeholder
         }
         if (newImgUrl === '') {
             newImgUrl = imgUrl

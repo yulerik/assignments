@@ -1,0 +1,14 @@
+.things-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ugly-thing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+.ugly-thing img {
+    width: 250px;
+}
