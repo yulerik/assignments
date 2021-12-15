@@ -6,7 +6,9 @@ import './styles.css'
 function App() {
     return (
         <>
+            <h1>Enter an ugly thing</h1>
             <FormInputs />
+            <hr></hr>
             <UglyThings />
         </>
     )

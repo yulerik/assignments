@@ -4,7 +4,7 @@ import {ThemeContext} from './themeContext'
 function FormInputs(props) {
     const {formInputs, handleChange, submitInputs} = useContext(ThemeContext)
     return (
-        <form onSubmit={submitInputs}>
+        <form id='submit' onSubmit={submitInputs}>
             <input 
                 type='text'
                 placeholder='Ugly Thing Title'
