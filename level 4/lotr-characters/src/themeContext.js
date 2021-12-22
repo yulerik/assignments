@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import allCharacters from './lotrCharactersAll'
-import {Link} from 'react-router-dom'
+// import allCharacters from './lotrCharactersAll'
 
 const ThemeContext = React.createContext()
 
 function ThemeContextProvider(props) {
     // set state, function for get call to set state
-    const [characters, setCharacters] = useState(allCharacters)
+    const [characters, setCharacters] = useState([])
     const [fellowship, setFellowship] = useState([])
  
     // Samwise id: 5cd99d4bde30eff6ebccfd0d
@@ -28,7 +27,8 @@ function ThemeContextProvider(props) {
                 if (current === each._id) {
                     return true
                 }
-            } 
+            }
+            return false 
         })
         setFellowship(theFellowship)
     }
@@ -41,6 +41,7 @@ function ThemeContextProvider(props) {
         })
             .then(response => {
                 setCharacters((response.data.docs))
+
             })
             .catch(error => console.log(error))
     }
@@ -52,9 +53,13 @@ function ThemeContextProvider(props) {
         })
       }
 
-    // useEffect(() => {
-    //     getCharacters()
-    // }, [])
+    useEffect(() => {
+        getCharacters()
+    }, [])
+
+    useEffect(() => {
+        getFellowship()
+    },[characters])
 
 
 

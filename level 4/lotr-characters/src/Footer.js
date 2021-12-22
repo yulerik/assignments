@@ -20,7 +20,7 @@ function Footer(props) {
 
     return (
         <footer>
-            <p>sourced from<a href='https://the-one-api.dev'>The One Api</a></p>
+            <p>sourced from: <a href='https://the-one-api.dev'>The One Api</a></p>
             <button style={{display: visible ? 'inline' : 'none'}} onClick={scrollToTop}>Back to top</button>
         </footer>
     )

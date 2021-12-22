@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {ThemeContext} from './themeContext'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { useEffect } from 'react/cjs/react.development'
 
 
 function Characters() {
@@ -10,10 +11,10 @@ function Characters() {
     const allCharacters = filter.map(each => (
         <Link key={each._id} to={`${each._id}`}>
             <div>
-                <h5>
+                <h5 style={{marginTop: '1px', marginBottom: '1px'}}>
                     {each.name}
                 </h5>
-                <h6>{each.race}</h6>
+                <h6 style={{marginTop: '1px', marginBottom: '1px'}}>{each.race}</h6>
             </div>
         </Link>
     ))
@@ -25,6 +26,7 @@ function Characters() {
             if (each.name[0] === sort) {
                 return true
             }
+            return false
         })
         setFilter(filterSort)
     }
@@ -64,7 +66,19 @@ function Characters() {
 
     }
 
-    
+    useEffect(() => {
+        axios.get('https://the-one-api.dev/v2/character', {
+            headers: {
+                'Authorization': `Bearer BvNgVR4Md3VR8AugMg9x`
+            }
+        })
+            .then(response => {
+                setFilter((response.data.docs))
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+
     return (
         <div>
             <form name='filter'>
@@ -113,7 +127,7 @@ function Characters() {
                 <input type='button' htmlFor='filter' value='Filter' onClick={handleFilter}></input>
             
             </form>
-            <h5>Click a letter to sort by first name initial</h5>
+            <h5 style={{marginBottom: '5px'}}>Click a letter to sort by first name initial</h5>
             <button onClick={handleSortFilter}>A</button>
             <button onClick={handleSortFilter}>B</button>
             <button onClick={handleSortFilter}>C</button>
