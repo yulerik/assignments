@@ -1,13 +1,17 @@
 import React, {Component} from 'react'
 import './styles.css'
 import Hit from './Hit'
+import axios from 'axios'
+import BackgroundButton from './BackgroundButton'
 
-class App extends React.Component {
+class App extends Component {
     constructor() {
         super()
         this.state = {
             loading: false,
-            list: []
+            list: [],
+            loadingColor: false,
+            titleColor: ''
         }
     }
 
@@ -21,16 +25,25 @@ class App extends React.Component {
                     list: data
                 })
             })
+        axios.get('https://www.colr.org/json/color/random?timestamp=${newDate().getTime()}')
+            .then(response => {
+                this.setState({
+                    loadingColor: false,
+                    titleColor: response.data['new_color']
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     render() {
         // const loadingText = this.state.loading ? 'loading hit list' : 'list has loaded'
         const loadingText = this.state.loading ? 'loading hit list' : this.state.list.map(each => <Hit info={each} />)
-        console.log(this.state.list[0])
-        
+        const titleColor = this.state.loadingColor ? 'orange' : `#${this.state.titleColor}`
+
         return (
-            <div id='hit-list'>
-                <h1>Don Corleone's Hit List</h1>
+            <div id='hit-list' style={{backgroundColor: this.state.randomColor}}>
+                <h1 style={{backgroundColor: titleColor}} >Don Corleone's Hit List</h1>
+                <BackgroundButton />
                 <ul>
                     {loadingText}
                 </ul>
