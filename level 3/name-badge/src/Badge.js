@@ -3,6 +3,7 @@ import React from 'react'
 class Badge extends React.Component {
 
     render() {
+        console.log(this.props.product)
         const {firstName, lastName, email, phone, favFood, birthPlace, textArea} = this.props.product
         let phoneNumber = phone.split('')
         phoneNumber.splice(3,0, '-')

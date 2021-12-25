@@ -32,23 +32,10 @@ class App extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-        const {firstName, lastName, email, phone, textArea, favFood, birthPlace} = event.target
-        const newState = {
-            firstName: firstName.value,
-            lastName: lastName.value,
-            email: email.value,
-            phone: phone.value,
-            birthPlace: birthPlace.value,
-            textArea: textArea.value,
-            favFood: favFood.value
-        }
-        this.setState(prevState => prevState.listOfBadges.push(newState))
-        // clear state directly since the forms display state. do not clear the array of badges.
-        for (let each in this.state) {
-            if (!Array.isArray(this.state[each])) {
-                this.state[each] = ''
-            }
-        }
+        
+        this.setState(({listOfBadges, firstName, lastName, email, phone, textArea, favFood, birthPlace}) => ({
+            listOfBadges: [...listOfBadges, {firstName, lastName, email, phone, textArea, favFood, birthPlace}], 
+            firstName: '', lastName: '', email: '', phone: '', textArea: '', favFood: '', birthPlace: ''}))
     }
 
     render() {
