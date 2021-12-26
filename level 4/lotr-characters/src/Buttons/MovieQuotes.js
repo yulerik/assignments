@@ -39,8 +39,6 @@ function MovieQuotes(props) {
         getQuotes()
     }, [])
 
-    
-
     return (
         <div>
             <button onClick={toggleMovieQuotes}>See All Movie Quotes</button>
@@ -49,7 +47,6 @@ function MovieQuotes(props) {
                 {quotes.map(each => <h5 key={each._id}>{each.dialog}</h5>)}
             </div>
         </div>
-
     )
 }
 
