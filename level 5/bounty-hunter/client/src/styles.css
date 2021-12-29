@@ -1,0 +1,14 @@
+#root {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+#newBountyForm {
+    display: flex;
+    flex-direction: column;
+}
+#newBountyForm > * {
+    margin: 3px;
+}
+.bounty {
+    grid-column: 2/3;
+}

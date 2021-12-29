@@ -6,11 +6,12 @@ const port = process.env.PORT || 9000
 
 app.use(express.json())
 app.use(morgan('dev'))
+app.use('/', require('./routes/homeInfo'))
 app.use('/bounty', require('./routes/bounty'))
 
 
 
 
-app.listen(9000, () => {
+app.listen(port, () => {
     console.log(`Running on ${port}`)
 })
