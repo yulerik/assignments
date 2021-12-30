@@ -2,7 +2,6 @@ const express = require('express')
 const bounty = express.Router()
 const uuid = require('uuid')
 
-
 const bountyOne = {
     firstName: 'Qui-Gon',
     lastName: 'Jinn',
@@ -48,8 +47,7 @@ bounty.route('/:bountyId')
         const bountyIndex = bounties.findIndex(index => index.id === bountyId)
         // replaces values that are different from the stored bounty with the new bounty values, ie updates anything new.
         const updateBounty = Object.assign(bounties[bountyIndex], newBountyObject)
-        res.send(updateBounty)
-
+        res.send(`Successfully updated bounty information for ${updateBounty.firstName}.`)
     })
 
 module.exports = bounty

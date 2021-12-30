@@ -1,10 +1,15 @@
 import React from 'react'
+import axios from 'axios'
 
 function Bounty(props) {
-    return (
-        <div className='bounty'>
+    const living = props.living ? 'alive' : 'deceased'
 
-            <h1>{props.firstName} {props.lastName}</h1>
+    return (
+        <div id={props.id} className='bounty'>
+            <h2>{props.firstName} {props.lastName} <span style={{fontSize:'14px'}}>{props.type} - {living}</span></h2>
+            <h3>Bounty Amount: {props.bountyAmount}</h3>
+            <button onClick={props.onEdit}>Edit Bounty</button> <br></br>
+            <button onClick={props.onDelete}>Delete Bounty</button>
         </div>
     )
 }

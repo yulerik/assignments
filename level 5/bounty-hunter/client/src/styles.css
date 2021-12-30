@@ -9,6 +9,7 @@
 #newBountyForm > * {
     margin: 3px;
 }
+
 .bounty {
     grid-column: 2/3;
 }

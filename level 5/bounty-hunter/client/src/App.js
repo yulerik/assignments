@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NewBountyForm from './components/NewBountyForm'
 import Bounty from './components/Bounty'
+import EditForm from './components/EditForm'
 import './styles.css'
+
 
 function App(props) {
     const blankInputs = {
@@ -14,9 +16,9 @@ function App(props) {
     }
     const [bounties, setBounties] = useState([])
     const [inputs, setInputs] = useState(blankInputs)
+    const [editInputs, setEditInputs] = useState(blankInputs)
+    const [displayEdit, setDisplay] = useState(false)
 
-    
-    
     function handleChange(event){
         const {name, value} = event.target
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
@@ -26,6 +28,7 @@ function App(props) {
         axios.post('/bounty', inputs)
             .then(res => console.log(res))
             .catch(err => console.log(err))
+        setBounties(prevBounties => [...prevBounties, inputs])
         setInputs(blankInputs)
         const newBountyForm = document.newBounty
         const {firstName, lastName, living, bountyAmount, type} = newBountyForm
@@ -35,12 +38,37 @@ function App(props) {
         bountyAmount.value = ''
         type.value = ''
     }
-    
-    useEffect(() => {
+    function handleEdit(event) {
+        if (displayEdit) {
+            setDisplay(false)
+            setEditInputs(blankInputs)
+
+        } else {
+            setDisplay(true)
+            const currentBounty = bounties.find(bounty => bounty.id === event.target.parentElement.id)
+            setEditInputs(currentBounty)
+        }
+    }
+    function updateBounties() {
         axios.get('/bounty')
             .then(res => setBounties(res.data))
             .catch(error => console.log(error))
-    }, [bounties])
+    }
+    function onDelete(event) {
+        axios.delete(`/bounty/${props.id}`)
+            .then(res => {
+                console.log(res.data)
+                updateBounties()
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        updateBounties()
+        // axios.get('/bounty')
+        //     .then(res => setBounties(res.data))
+        //     .catch(error => console.log(error))
+    }, [])
 
     return (
         <>
@@ -50,7 +78,18 @@ function App(props) {
                 bounties={bounties} 
                 state={inputs, setInputs, bounties, setBounties}
             />
-            {bounties.map(bounty => <Bounty {...bounty} key={bounty.id} />)}
+            {bounties.map(bounty => 
+                <Bounty {...bounty} 
+                    onDelete={onDelete}
+                    onEdit={handleEdit} 
+                    key={bounty.id} 
+                />
+            )}
+            <EditForm 
+                updateBounties={updateBounties} 
+                state={displayEdit} editState={setDisplay} 
+                inputs={editInputs} 
+            />
         </>
     )
 }
