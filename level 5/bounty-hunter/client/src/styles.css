@@ -29,6 +29,9 @@ form {
 form label {
     grid-row: 1/2; 
 }
+form select {
+    grid-row: 2/3;
+}
 form input {
     grid-row: 2/3; 
 }

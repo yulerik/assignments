@@ -12,6 +12,7 @@ function NewBountyForm(props) {
                 value={firstName}
                 placeholder='First Name'
                 onChange={props.onChange}
+                required
             />
             <label>Last Name: </label>
             <input
@@ -20,15 +21,14 @@ function NewBountyForm(props) {
                 value={lastName}
                 placeholder='Last Name'
                 onChange={props.onChange}
+                required
             />
             <label>Living: </label>
-            <input
-                type='boolean'
-                name='living'
-                value={living}
-                placeholder='true/false'
-                onChange={props.onChange}
-            />
+            <select name='living' onChange={props.onChange} required>
+                <option value=''>is the bounty alive</option>
+                <option value='true'>true</option>
+                <option value='false'>false</option>
+            </select>
             <label>Bounty Amount: </label>
             <input
                 type='number'
@@ -36,15 +36,15 @@ function NewBountyForm(props) {
                 value={bountyAmount}
                 placeholder='price for bounty'
                 onChange={props.onChange}
+                min='0'
+                required
             />
             <label>Type: </label>
-            <input
-                type='text'
-                name='type'
-                value={type}
-                placeholder='jedi or sith'
-                onChange={props.onChange}
-            />
+            <select name='type' onChange={props.onChange} required>
+                <option value=''>the dark or light side</option>
+                <option value='jedi'>jedi</option>
+                <option value='sith'>sith</option>
+            </select>
             <button onSubmit={props.handleSubmit} >Add Bounty</button>
         </form>
     )

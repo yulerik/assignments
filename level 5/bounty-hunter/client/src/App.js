@@ -31,7 +31,7 @@ function App(props) {
                 updateBounties()
             })
             .catch(err => console.log(err))
-        setBounties(prevBounties => [...prevBounties, inputs])
+        // setBounties(prevBounties => [...prevBounties, inputs])
         setInputs(blankInputs)
         const newBountyForm = document.newBounty
         const {firstName, lastName, living, bountyAmount, type} = newBountyForm
@@ -45,7 +45,13 @@ function App(props) {
         if (displayEdit) {
             setDisplay(false)
             setEditInputs(blankInputs)
-
+            const editBountyForm = document.editBounty
+            const {firstName, lastName, living, bountyAmount, type} = editBountyForm
+            firstName.value = ''
+            lastName.value = ''
+            living.value = ''
+            bountyAmount.value = ''
+            type.value = ''
         } else {
             setDisplay(true)
             const currentBounty = bounties.find(bounty => bounty._id === event.target.parentElement.id)

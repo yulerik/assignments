@@ -21,6 +21,7 @@ const bountySchema = new Schema({
     },
     type: {
         type: String,
+        enum: ['jedi', 'sith'],
         required: true
     }
 })

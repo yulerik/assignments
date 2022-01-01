@@ -14,6 +14,7 @@ function EditForm(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
+        console.log()
         // change empty values, ie no inputs, to old values before put call
         if (newInputs.firstName === '') {
             newInputs.firstName = inputs.firstName
@@ -40,6 +41,14 @@ function EditForm(props) {
             .catch(err => console.log(err))
         // reset inputs for edit Form
         setNewInputs(blankInputs)
+        const editBountyForm = document.editBounty
+        const {firstName, lastName, living, bountyAmount, type} = editBountyForm
+        firstName.value = ''
+        lastName.value = ''
+        living.value = ''
+        bountyAmount.value = ''
+        type.value = ''
+
     }
 
     function handleChange(event){
@@ -50,9 +59,6 @@ function EditForm(props) {
     useEffect(() => {
         setInputs(props.inputs)
     }, [props])
-
-    const living = props.living ? 'true' : 'false'
-
 
     return (
         <div style={{display: !props.state ? 'none' : 'block'}} id='edit-form'>
@@ -76,13 +82,11 @@ function EditForm(props) {
                 />
                 <br></br>
                 <label>Switch living to:</label>
-                <input
-                    type='boolean'
-                    name='living'
-                    value={newInputs.living}
-                    placeholder={props.inputs.living.toString()}
-                    onChange={handleChange}
-                />
+                <select name='living' onChange={handleChange}>
+                    <option value=''>is the bounty alive</option>
+                    <option value='true'>true</option>
+                    <option value='false'>false</option>
+                </select>
                 <br></br>
                 <label>Change bounty amount to:</label>
                 <input
@@ -94,13 +98,11 @@ function EditForm(props) {
                 />
                 <br></br>
                 <label>Switch type to:</label>
-                <input
-                    type='text'
-                    name='type'
-                    value={newInputs.type}
-                    placeholder={props.inputs.type}
-                    onChange={handleChange}
-                />
+                <select name='type' onChange={handleChange}> 
+                    <option value=''>the dark or light side</option>
+                    <option value='jedi'>jedi</option>
+                    <option value='sith'>sith</option>
+                </select>
                 <button onSubmit={props.handleSubmit} >Update Bounty</button>
             </form>
         </div>
