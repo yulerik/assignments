@@ -5,7 +5,7 @@ function EditForm(props) {
     const blankInputs = {
         firstName: '',
         lastName: '',
-        living: true,
+        living: '',
         bountyAmount: 0,
         type: ''
     }
@@ -27,11 +27,11 @@ function EditForm(props) {
         if (newInputs.bountyAmount === 0) {
             newInputs.bountyAmount = inputs.bountyAmount
         }
-        if (newInputs.living !== true || newInputs.living !== false) {
+        if (newInputs.living === '') {
             newInputs.living = inputs.living
         }
         // put call with new input objects, update state after successfully put call, hide display for editForm
-        axios.put(`/bounty/${inputs.id}`, newInputs)
+        axios.put(`/bounty/${inputs._id}`, newInputs)
             .then(res => {
                 props.updateBounties()
                 console.log(res.data)
@@ -51,10 +51,13 @@ function EditForm(props) {
         setInputs(props.inputs)
     }, [props])
 
+    const living = props.living ? 'true' : 'false'
+
+
     return (
-        <div style={{display: !props.state ? 'none' : 'flex'}} id='edit-form'>
+        <div style={{display: !props.state ? 'none' : 'block'}} id='edit-form'>
             <form id='editBountyForm' name='editBounty' onSubmit={handleSubmit}>
-                <label>Change first name from: {props.inputs.firstName}, to:</label>
+                <label>Change first name to:</label>
                 <input
                     type='text'
                     name='firstName'
@@ -63,7 +66,7 @@ function EditForm(props) {
                     onChange={handleChange}
                 />
                 <br></br>
-                <label>Change last name from: {props.inputs.lastName}, to:</label>
+                <label>Change last name to:</label>
                 <input
                     type='text'
                     name='lastName'
@@ -72,7 +75,7 @@ function EditForm(props) {
                     onChange={handleChange}
                 />
                 <br></br>
-                <label>Switch living from: {props.inputs.living}, to:</label>
+                <label>Switch living to:</label>
                 <input
                     type='boolean'
                     name='living'
@@ -81,7 +84,7 @@ function EditForm(props) {
                     onChange={handleChange}
                 />
                 <br></br>
-                <label>Change bounty amount from: {props.inputs.bountyAmount}, to:</label>
+                <label>Change bounty amount to:</label>
                 <input
                     type='number'
                     name='bountyAmount'
@@ -90,7 +93,7 @@ function EditForm(props) {
                     onChange={handleChange}
                 />
                 <br></br>
-                <label>Switch from: {props.inputs.type}, to:</label>
+                <label>Switch type to:</label>
                 <input
                     type='text'
                     name='type'

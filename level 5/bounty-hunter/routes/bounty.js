@@ -1,53 +1,72 @@
 const express = require('express')
-const bounty = express.Router()
-const uuid = require('uuid')
+const bountyRouter = express.Router()
+// const uuid = require('uuid')
+const Bounty = require('../models/bounties')
+// const bounties = 'some bounties'
 
-const bountyOne = {
-    firstName: 'Qui-Gon',
-    lastName: 'Jinn',
-    living: false,
-    bountyAmount: 32,
-    type: 'jedi',
-    id: '0b1862ef-4be8-4f2a-809f-fe8cb070269b'
-}
-const bountyTwo = {
-    firstName: 'Darth',
-    lastName: 'Vader',
-    living: false,
-    bountyAmount: 50,
-    type: 'sith',
-    id: '504270b8-b1f8-4120-a045-7c452711e1fe'
-}
-const bounties = [bountyOne, bountyTwo]
+bountyRouter.route('/')
+    .get((req, res, next) => {
+        Bounty.find((error, bounty) => {
+            if (error) {
+                res.status(500)
+                return next(error)
+            }
+            return res.status(200).send(bounty)
+        })
+    })
+    .post((req, res, next) => {
+        const newBountyObj = new Bounty (req.body)
+        newBountyObj.save(err => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(newBountyObj)
+        })
+    })
+bountyRouter.route('/:bountyId')
+    .get((req, res, next) => {
+        Bounty.findById(req.params.bountyId, (err, bounty) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(bounty)            
+        })
+    })
+    .delete((req, res, next) => {
+        Bounty.findByIdAndRemove(req.params.bountyId, (error, bounty) => {
+            if (error) {
+                res.status(500)
+                return next(error)
+            }
+            const response = {
+                message: 'Bounty successfully deleted'
+            }
+            return res.status(200).send(response)
+        })
+    })
+    .put((req, res, next) => {
+        Bounty.findByIdAndUpdate(
+            req.params.bountyId, 
+            req.body, 
+            {new:true},
+            (err, bounty) => {
+                if (err) {
+                    res.status(500)
+                    return next(err)
+                }
+                return res.send(bounty)
+            }
+        )
 
-bounty.route('/')
-    .get((req, res) => {
-        res.send(bounties)
-    })
-    .post((req, res) => {
-        const newBounty = req.body
-        req.body.id = uuid.v4()
-        bounties.push(newBounty)
-        res.send(`Successfully added ${newBounty.firstName} ${newBounty.lastName} to the bounties array`)
-    })
-bounty.route('/:bountyId')
-    .get((req, res) => {
-        const filtered = bounties.find(found => found.id === req.params.bountyId)
-        res.send(filtered)
-    })
-    .delete((req, res) => {
-        const bountyId = req.params.bountyId
-        const bountyIndex = bounties.findIndex(index => index.id === bountyId)
-        bounties.splice(bountyIndex, 1)
-        res.send(`Successfully deleted bounty`)
-    })
-    .put((req, res) => {
-        const bountyId = req.params.bountyId
-        const newBountyObject = req.body
-        const bountyIndex = bounties.findIndex(index => index.id === bountyId)
-        // replaces values that are different from the stored bounty with the new bounty values, ie updates anything new.
-        const updateBounty = Object.assign(bounties[bountyIndex], newBountyObject)
-        res.send(`Successfully updated bounty information for ${updateBounty.firstName}.`)
+
+        // const bountyId = req.params.bountyId
+        // const newBountyObject = req.body
+        // const bountyIndex = bounties.findIndex(index => index.id === bountyId)
+        // // replaces values that are different from the stored bounty with the new bounty values, ie updates anything new.
+        // const updateBounty = Object.assign(bounties[bountyIndex], newBountyObject)
+        // res.send(`Successfully updated bounty information for ${updateBounty.firstName}.`)
     })
 
-module.exports = bounty
+module.exports = bountyRouter

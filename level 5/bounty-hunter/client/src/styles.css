@@ -1,15 +1,50 @@
-#root {
+@font-face {
+    font-family: ringbearer;
+    src: url('./fonts/Starjedi.ttf');
+}
+body {
+    background-image: url('./fonts/blur-background.jpeg');
+    background-repeat: no-repeat;
+    font-family: 'Star jedi';
+    letter-spacing: .032em;
+    color: #FFDE06;
+    
+}
+input {
+    background-color: rgba(0,0,0, .1);
+    color: #FFDE06;
+    font-family: 'Star jedi';
+}
+/* #root {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+} */
+form {
+    display: grid;
+    padding: 4px;
+    grid-gap: 5px;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 1/2fr;
 }
-#newBountyForm {
-    display: flex;
-    flex-direction: column;
+form label {
+    grid-row: 1/2; 
 }
-#newBountyForm > * {
-    margin: 3px;
+form input {
+    grid-row: 2/3; 
 }
+form button {
+    grid-column: 4/5;
+    grid-row: 3/4;
+}
+#forms {
+    background-color: #333;
+    height: 110px;
 
+}
+#bounties {
+    text-align: center;
+}
 .bounty {
-    grid-column: 2/3;
+    text-align: center;
+
 }

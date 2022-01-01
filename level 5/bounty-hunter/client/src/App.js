@@ -10,7 +10,7 @@ function App(props) {
     const blankInputs = {
         firstName: '',
         lastName: '',
-        living: true,
+        living: '',
         bountyAmount: 0,
         type: ''
     }
@@ -26,7 +26,10 @@ function App(props) {
     function handleSubmit(event) {
         event.preventDefault()
         axios.post('/bounty', inputs)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                updateBounties()
+            })
             .catch(err => console.log(err))
         setBounties(prevBounties => [...prevBounties, inputs])
         setInputs(blankInputs)
@@ -45,7 +48,7 @@ function App(props) {
 
         } else {
             setDisplay(true)
-            const currentBounty = bounties.find(bounty => bounty.id === event.target.parentElement.id)
+            const currentBounty = bounties.find(bounty => bounty._id === event.target.parentElement.id)
             setEditInputs(currentBounty)
         }
     }
@@ -55,7 +58,7 @@ function App(props) {
             .catch(error => console.log(error))
     }
     function onDelete(event) {
-        axios.delete(`/bounty/${props.id}`)
+        axios.delete(`/bounty/${event.target.parentElement.id}`)
             .then(res => {
                 console.log(res.data)
                 updateBounties()
@@ -72,24 +75,28 @@ function App(props) {
 
     return (
         <>
-            <NewBountyForm 
-                onChange={handleChange} 
-                onSubmit={handleSubmit} 
-                bounties={bounties} 
-                state={inputs, setInputs, bounties, setBounties}
-            />
-            {bounties.map(bounty => 
-                <Bounty {...bounty} 
-                    onDelete={onDelete}
-                    onEdit={handleEdit} 
-                    key={bounty.id} 
+            <div id='forms'>
+                <NewBountyForm 
+                    onChange={handleChange} 
+                    onSubmit={handleSubmit} 
+                    bounties={bounties} 
+                    state={inputs, setInputs, bounties, setBounties, displayEdit}
                 />
-            )}
-            <EditForm 
-                updateBounties={updateBounties} 
-                state={displayEdit} editState={setDisplay} 
-                inputs={editInputs} 
-            />
+                <EditForm 
+                    updateBounties={updateBounties} 
+                    state={displayEdit} editState={setDisplay} 
+                    inputs={editInputs} 
+                />
+            </div>
+            <div id='bounties'>
+                {bounties.map(bounty => 
+                    <Bounty {...bounty} 
+                        onDelete={onDelete}
+                        onEdit={handleEdit} 
+                        key={bounty._id} 
+                    />
+                )}
+            </div>
         </>
     )
 }

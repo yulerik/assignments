@@ -4,7 +4,7 @@ function NewBountyForm(props) {
     const {firstName, lastName, living, bountyAmount, type} = props.state
 
     return (
-        <form id='newBountyForm' name='newBounty' onSubmit={props.onSubmit}>
+        <form style={{display: props.state ? 'none' : 'grid'}} id='newBountyForm' name='newBounty' onSubmit={props.onSubmit}>
             <label>First Name: </label>
             <input
                 type='text'
