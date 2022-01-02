@@ -59,14 +59,6 @@ bountyRouter.route('/:bountyId')
                 return res.send(bounty)
             }
         )
-
-
-        // const bountyId = req.params.bountyId
-        // const newBountyObject = req.body
-        // const bountyIndex = bounties.findIndex(index => index.id === bountyId)
-        // // replaces values that are different from the stored bounty with the new bounty values, ie updates anything new.
-        // const updateBounty = Object.assign(bounties[bountyIndex], newBountyObject)
-        // res.send(`Successfully updated bounty information for ${updateBounty.firstName}.`)
     })
 
 module.exports = bountyRouter
